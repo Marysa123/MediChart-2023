@@ -1,0 +1,20 @@
+﻿MediChart
+
+
+winexe
+C#
+.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\Преддипломная практика 2023\Герберсгаген Артур\MediChart\MediChart\obj\Debug\
+MediChart
+none
+false
+DEBUG;TRACE
+C:\Users\Дмитрий\Desktop\Диплом_2022\Преддипломная практика 2023\Герберсгаген Артур\MediChart\MediChart\App.xaml
+261245462317
+
+291092385442
+24-1603410028
+Resources\Styles\ButtonStyleWindow.xaml;Resources\Styles\StyleDelete.xaml;Windows\AddPersonalWindow.xaml;Windows\AddRecordsWindow.xaml;Windows\ConfirmationEmail.xaml;Windows\InfoPacientMedRabWindow.xaml;Windows\InfoRecordsWindow.xaml;Windows\InfoViewPersonalAdmin.xaml;Windows\MenuAdminWindow.xaml;Windows\MenuMedRabWindow.xaml;Windows\MenuPacientWindow.xaml;Windows\RegistrationUser.xaml;Windows\SignInAndUp.xaml;WindowUserControl\AddInfoClassDiagAdmin.xaml;WindowUserControl\AddRecordsMedRab.xaml;WindowUserControl\InfoAppMedRab.xaml;WindowUserControl\InfoAppPacient.xaml;WindowUserControl\InfoMedicinesMedRab.xaml;WindowUserControl\InfoPacientAdmin.xaml;WindowUserControl\InfoPacientsMedRab.xaml;WindowUserControl\InfoPersonalAdmin.xaml;WindowUserControl\InfoRecordsPacinet.xaml;WindowUserControl\InfoTeachecAdmin.xaml;WindowUserControl\InfoTeacherMedRab.xaml;WindowUserControl\PersonalProfileMedRab.xaml;WindowUserControl\PersonalProfilePacient.xaml;
+
+False
+

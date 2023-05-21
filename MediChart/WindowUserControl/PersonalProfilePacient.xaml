@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="MediChart.WindowUserControl.PersonalProfilePacient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediChart.WindowUserControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="840" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Форма пользователя | Личный кабинет" FontSize="20" Margin="20 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+
+        <Border Background="White" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" CornerRadius="10" Margin="20 80 40 40">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Личная информация" FontSize="22" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0 10 0 0" VerticalAlignment="Top" Foreground="Black"/>
+                <StackPanel Margin="0 60 0 0" Grid.Column="0">
+                    <TextBox  Name="textbox_Fam" Width="300" BorderBrush="#FF138300" Margin="10 0 0 0" FontSize="20" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Фамилия:" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" PreviewTextInput="textbox_Fam_PreviewTextInput"/>
+                    <TextBox  Name="textbox_Ima" BorderBrush="#FF138300" Margin="10 20 0 0" Width="300" FontSize="20" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Имя:" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" Cursor="Arrow" PreviewTextInput="textbox_Fam_PreviewTextInput"/>
+                    <TextBox  Name="textbox_Otc" BorderBrush="#FF138300" Width="300" Margin="10 20 0 0" FontSize="20" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Отчество:" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" Cursor="Arrow" PreviewTextInput="textbox_Fam_PreviewTextInput"/>
+                    <TextBox Name="textbox_EMail" materialDesign:HintAssist.Hint="E-mail:" Margin="10 20 0 0" Width="300" materialDesign:TextFieldAssist.LeadingIcon="MailboxOpenUp" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" BorderBrush="#FF138300" FontSize="20" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+                    <TextBox Name="textbox_Phone" materialDesign:HintAssist.Hint="Номер телефона:" Margin="10 20 0 0" Width="300" PreviewTextInput="textbox_Phone_PreviewTextInput" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True"  BorderBrush="#FF138300" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="11" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"   materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+                    <TextBox Name="textbox_Rod" materialDesign:HintAssist.Hint="Номер телефона родителя:" Margin="10 20 0 0" Width="300" PreviewTextInput="textbox_Phone_PreviewTextInput" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True"  BorderBrush="#FF138300" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="11" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"   materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+                    <TextBox Name="textbox_Adres" materialDesign:HintAssist.Hint="Адрес:" Margin="10 20 0 0" Width="300" BorderBrush="#FF138300" FontSize="20" Foreground="black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"   materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="0 60 0 0">
+                    <ComboBox Height="60" Width="200" Name="combobox_Pol" BorderBrush="#FF138300" Text="{Binding Path=Pol}" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Пол" FontSize="18" >
+                        <ComboBoxItem Content="Мужской"/>
+                        <ComboBoxItem Content="Женский"/>
+                    </ComboBox>
+                    <ComboBox Height="60" Width="200" Text="{Binding Path=Class}" BorderBrush="#FF138300" Margin="0 20 0 0" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" Name="combobox_Class" Foreground="Black" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Класс" FontSize="18"/>
+                    <DatePicker Height="60" BorderBrush="#FF138300" Name="datapicker_data" Margin="0 20 0 0" Text="{Binding Path=DataRosh}" materialDesign:HintAssist.Foreground="Black" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" Width="200" materialDesign:HintAssist.Hint="Дата рождения" Style="{StaticResource MaterialDesignOutlinedDatePicker}" FontSize="16"/>
+                    <Button Name="button_UpdateUser" BorderBrush="#FF138300" Click="button_UpdateUser_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="0 20 0 0" Width="252" Height="65" Content="Изменить" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Image Name="icon_Exit2" Cursor="Hand" Grid.Column="3" Source="/Resources/Images/icon_Exit.png" MouseDown="icon_Exit2_MouseDown" HorizontalAlignment="Right" Margin="0 35 35 0" Width="25" VerticalAlignment="Top" Height="25"/>
+
+        <Border Grid.ColumnSpan="1" Background="#FF20A47C" CornerRadius="10" Margin="30 80 0 0">
+            <Image Name="ImagesProfile" Source="{Binding Path = SourceIm}"  MouseDown="ImagesProfile_MouseDown" Margin="40"  Grid.Column="0" Cursor="Hand"/>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+        </Border>
+    </Grid>
+</UserControl>

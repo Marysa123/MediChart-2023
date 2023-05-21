@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_MediChartModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Журнал_Посещений">
+    <Key>
+      <PropertyRef Name="Номер_Записи" />
+    </Key>
+    <Property Name="Номер_Записи" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Дата" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FK_Номер_Пациента" Type="Int32" Nullable="false" />
+    <Property Name="FK_Номер_Сотрудника" Type="Int32" Nullable="false" />
+    <Property Name="Жалобы" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Назначенное_Лечение" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Диагноз" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Документ_справка" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Учащийся" Relationship="Self.FK__Журнал_По__FK_Но__534D60F1" FromRole="Журнал_Посещений" ToRole="Учащийся" />
+    <NavigationProperty Name="Сотрудники" Relationship="Self.FK__Журнал_По__FK_Но__5441852A" FromRole="Журнал_Посещений" ToRole="Сотрудники" />
+    <NavigationProperty Name="Список_Диагнозов" Relationship="Self.FK__Журнал_По__Диагн__5535A963" FromRole="Журнал_Посещений" ToRole="Список_Диагнозов" />
+  </EntityType>
+  <EntityType Name="Классный_руководитель">
+    <Key>
+      <PropertyRef Name="Номер_классного_руководителя" />
+    </Key>
+    <Property Name="Номер_классного_руководителя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Отчество" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Электронная_почта" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_Телефона" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пол" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Дата_Рождения" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Адрес_Проживания" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Закрепленный_класс" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Список_Классов" Relationship="Self.FK__Классный___Закре__4222D4EF" FromRole="Классный_руководитель" ToRole="Список_Классов" />
+  </EntityType>
+  <EntityType Name="Лекарства">
+    <Key>
+      <PropertyRef Name="Номер_Лекарства" />
+    </Key>
+    <Property Name="Номер_Лекарства" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Серийный_Номер" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Полное_Название" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Количество" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="Номер_Сотрудника" />
+    </Key>
+    <Property Name="Номер_Сотрудника" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Отчество" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Логин" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пароль" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Электронная_почта" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_Телефона" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пол" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Дата_Рождения" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Адрес" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Образование" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Специальность" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фотография" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Журнал_Посещений" Relationship="Self.FK__Журнал_По__FK_Но__5441852A" FromRole="Сотрудники" ToRole="Журнал_Посещений" />
+  </EntityType>
+  <EntityType Name="Список_Диагнозов">
+    <Key>
+      <PropertyRef Name="Полное_Название_Диагноза" />
+    </Key>
+    <Property Name="Номер_Диагноза" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Полное_Название_Диагноза" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Журнал_Посещений" Relationship="Self.FK__Журнал_По__Диагн__5535A963" FromRole="Список_Диагнозов" ToRole="Журнал_Посещений" />
+  </EntityType>
+  <EntityType Name="Список_Классов">
+    <Key>
+      <PropertyRef Name="Название_класса" />
+    </Key>
+    <Property Name="Номер_класса" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название_класса" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Классный_руководитель" Relationship="Self.FK__Классный___Закре__4222D4EF" FromRole="Список_Классов" ToRole="Классный_руководитель" />
+    <NavigationProperty Name="Учащийся" Relationship="Self.FK__Учащийся__FK_Ном__48CFD27E" FromRole="Список_Классов" ToRole="Учащийся" />
+  </EntityType>
+  <EntityType Name="Учащийся">
+    <Key>
+      <PropertyRef Name="Номер_Учащегося" />
+    </Key>
+    <Property Name="Номер_Учащегося" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Отчество" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Логин" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пароль" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Электронная_почта" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_Телефона" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_телефона_родителя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пол" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Дата_Рождения" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Адрес_Проживания" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Номер_Класса" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фотография" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Журнал_Посещений" Relationship="Self.FK__Журнал_По__FK_Но__534D60F1" FromRole="Учащийся" ToRole="Журнал_Посещений" />
+    <NavigationProperty Name="Список_Классов" Relationship="Self.FK__Учащийся__FK_Ном__48CFD27E" FromRole="Учащийся" ToRole="Список_Классов" />
+  </EntityType>
+  <Association Name="FK__Журнал_По__FK_Но__534D60F1">
+    <End Role="Учащийся" Type="Self.Учащийся" Multiplicity="1" />
+    <End Role="Журнал_Посещений" Type="Self.Журнал_Посещений" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Учащийся">
+        <PropertyRef Name="Номер_Учащегося" />
+      </Principal>
+      <Dependent Role="Журнал_Посещений">
+        <PropertyRef Name="FK_Номер_Пациента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Журнал_По__FK_Но__5441852A">
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
+    <End Role="Журнал_Посещений" Type="Self.Журнал_Посещений" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="Номер_Сотрудника" />
+      </Principal>
+      <Dependent Role="Журнал_Посещений">
+        <PropertyRef Name="FK_Номер_Сотрудника" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Журнал_По__Диагн__5535A963">
+    <End Role="Список_Диагнозов" Type="Self.Список_Диагнозов" Multiplicity="1" />
+    <End Role="Журнал_Посещений" Type="Self.Журнал_Посещений" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Список_Диагнозов">
+        <PropertyRef Name="Полное_Название_Диагноза" />
+      </Principal>
+      <Dependent Role="Журнал_Посещений">
+        <PropertyRef Name="Диагноз" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Классный___Закре__4222D4EF">
+    <End Role="Список_Классов" Type="Self.Список_Классов" Multiplicity="0..1" />
+    <End Role="Классный_руководитель" Type="Self.Классный_руководитель" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Список_Классов">
+        <PropertyRef Name="Название_класса" />
+      </Principal>
+      <Dependent Role="Классный_руководитель">
+        <PropertyRef Name="Закрепленный_класс" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Учащийся__FK_Ном__48CFD27E">
+    <End Role="Список_Классов" Type="Self.Список_Классов" Multiplicity="1" />
+    <End Role="Учащийся" Type="Self.Учащийся" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Список_Классов">
+        <PropertyRef Name="Название_класса" />
+      </Principal>
+      <Dependent Role="Учащийся">
+        <PropertyRef Name="FK_Номер_Класса" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_MediChartEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Журнал_Посещений" EntityType="Self.Журнал_Посещений" />
+    <EntitySet Name="Классный_руководитель" EntityType="Self.Классный_руководитель" />
+    <EntitySet Name="Лекарства" EntityType="Self.Лекарства" />
+    <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" />
+    <EntitySet Name="Список_Диагнозов" EntityType="Self.Список_Диагнозов" />
+    <EntitySet Name="Список_Классов" EntityType="Self.Список_Классов" />
+    <EntitySet Name="Учащийся" EntityType="Self.Учащийся" />
+    <AssociationSet Name="FK__Журнал_По__FK_Но__534D60F1" Association="Self.FK__Журнал_По__FK_Но__534D60F1">
+      <End Role="Учащийся" EntitySet="Учащийся" />
+      <End Role="Журнал_Посещений" EntitySet="Журнал_Посещений" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Журнал_По__FK_Но__5441852A" Association="Self.FK__Журнал_По__FK_Но__5441852A">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Журнал_Посещений" EntitySet="Журнал_Посещений" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Журнал_По__Диагн__5535A963" Association="Self.FK__Журнал_По__Диагн__5535A963">
+      <End Role="Список_Диагнозов" EntitySet="Список_Диагнозов" />
+      <End Role="Журнал_Посещений" EntitySet="Журнал_Посещений" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Классный___Закре__4222D4EF" Association="Self.FK__Классный___Закре__4222D4EF">
+      <End Role="Список_Классов" EntitySet="Список_Классов" />
+      <End Role="Классный_руководитель" EntitySet="Классный_руководитель" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Учащийся__FK_Ном__48CFD27E" Association="Self.FK__Учащийся__FK_Ном__48CFD27E">
+      <End Role="Список_Классов" EntitySet="Список_Классов" />
+      <End Role="Учащийся" EntitySet="Учащийся" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

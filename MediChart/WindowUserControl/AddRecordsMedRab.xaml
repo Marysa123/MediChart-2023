@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="MediChart.WindowUserControl.AddRecordsMedRab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediChart.WindowUserControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="840" Width="1200">
+    <Grid>
+        <Label Content="Форма медработника | Добавление записи о посещении" FontSize="20" Margin="20 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        <Image Name="icon_Exit" Cursor="Hand" Grid.ColumnSpan="2" Source="/Resources/Images/icon_Exit.png" MouseDown="icon_Exit_MouseDown" HorizontalAlignment="Right" Margin="0 25 25 0" Width="24" VerticalAlignment="Top"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="10 60 10 80">
+            <ListBox x:Name="PanelRecords" MouseDoubleClick="PanelRecords_MouseDoubleClick">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </ScrollViewer>
+        <Button Name="button_AddRecords" Click="button_AddRecords_Click" VerticalAlignment="Bottom" Width="150" Height="50" Content="Добавить" Margin="0 65 30 20" FontSize="16" HorizontalAlignment="Right" BorderThickness="0" FontFamily="Bahnschrift" BorderBrush="Transparent" Cursor="Hand">
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="3" BlurRadius="15"/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF43C799"/>
+                    <GradientStop Color="#FF278C36" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,74 @@
+﻿<Window x:Class="MediChart.Windows.MenuAdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediChart.Windows"
+        mc:Ignorable="d"
+        Title="Окно меню администратора" Height="840" Width="1400" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="Transparent">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0"/>
+        </Grid.Background>
+        <Border CornerRadius="25">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop 
+                        Color="#FF3A8003" 
+                        Offset="0.7"/>
+                    <GradientStop 
+                        x:Name="AnimationColor3"
+                        Color="#FF4B8020"  
+                        Offset="0.2"/>
+                    <GradientStop 
+                        x:Name="AnimationColor2"
+                        Color="#FF60A22C" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition/>
+
+                        <RowDefinition  Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="White" Grid.RowSpan="7" CornerRadius="10 10 10 10"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="10 0 0 0" Height="50" Name="button_InfoPacients" Width="190" MouseDown="button_InfoPacients_MouseDown" Cursor="Hand">
+                        <Image Name="icon_Info" Height="40" Source="\Resources\Images\icon_Pacients.png" HorizontalAlignment="Right" Width="40" Margin="10 0 0 0"/>
+                        <Label Height="30" Content="Пациенты" FontSize="17px" Margin="5 0 0 5"/>
+                    </TextBlock>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="10 20 0 0" Height="50" Name="button_Personal" Width="190" MouseDown="button_Personal_MouseDown" Cursor="Hand">
+                        <Image Name="icon_UserProfile" Height="40" Source="\Resources\Images\icon_AddPeople.png" HorizontalAlignment="Right" Width="40" Margin="10 0 0 0"/>
+                        <Label Height="30" Content="Персонал" FontSize="17px" Margin="10 0 0 5"/>
+                    </TextBlock>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Height="50" Margin="10 30 0 0" Name="button_AddClassRuk" Width="190" MouseDown="button_AddClassRuk_MouseDown" Cursor="Hand">
+                        <Image Name="icon_InfoClassRuk" Height="40" Source="\Resources\Images\icon_teacher.png" HorizontalAlignment="Right" Width="40" Margin="10 0 0 0"/>
+                        <TextBlock Text="Классные руководители" TextWrapping="Wrap" FontSize="17px" Margin="10 0 0 5"/>
+                    </TextBlock>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="10 0 0 0" Height="50" Name="button_Info" Width="190" MouseDown="button_Info_MouseDown" Cursor="Hand">
+                        <Image Name="icon_InfoDb" Height="40" Source="\Resources\Images\icon_Info.png" HorizontalAlignment="Right" Width="40" Margin="10 0 0 0"/>
+                        <Label Height="30" Content="Информация" FontSize="17px" Margin="5 0 0 5"/>
+                    </TextBlock>
+
+                    <Image Name="Logo" Grid.Column="0" Grid.Row="0" Source="\Resources\Images\icon_Logo.png" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Height="100"/>
+                    <Image Name="exit" Cursor="Hand" Grid.Column="0" Grid.Row="6" Source="\Resources\Images\icon_ExitWindow.png" HorizontalAlignment="Left" Margin="30 0 0 0" Width="40" VerticalAlignment="Center" Height="40" MouseDown="exit_MouseDown"/>
+                </Grid>
+
+                <ContentControl Grid.Column="1" Content="{Binding}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

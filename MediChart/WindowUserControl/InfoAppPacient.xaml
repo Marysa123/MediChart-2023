@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="MediChart.WindowUserControl.InfoAppPacient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediChart.WindowUserControl"
+             mc:Ignorable="d" 
+             Height="840" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Форма пользователя | Информация о программе" FontSize="20" Grid.Column="0" Grid.Row="0" Margin="20 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        <TextBlock Text="Здравствуйте! Данная программа предназначена для автоматизации работы медпункта. Она находится на стадии тестирования, поэтому не которые функции могут работать неправильно." TextAlignment="Justify" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Margin="30 65 0 0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+
+        <Label Content="График работы медицинского кабинета" FontSize="20" Margin="0 20 0 0" FontWeight="Regular" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+        <DataGrid Grid.Column="0" Grid.Row="1" Margin="20 60 20 20" Name="dataGrid" AutoGenerateColumns="True" CanUserAddRows="False" HeadersVisibility="All" IsReadOnly="True"/>
+
+        <Label Content="Функции программы" FontSize="20" Margin="0 50 0 0" FontWeight="Regular" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище db_MediChartModelContainer" CdmEntityContainer="db_MediChartEntities">
+    <EntitySetMapping Name="Журнал_Посещений">
+      <EntityTypeMapping TypeName="db_MediChartModel.Журнал_Посещений">
+        <MappingFragment StoreEntitySet="Журнал Посещений">
+          <ScalarProperty Name="Номер_Записи" ColumnName="Номер_Записи" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="FK_Номер_Пациента" ColumnName="FK_Номер_Пациента" />
+          <ScalarProperty Name="FK_Номер_Сотрудника" ColumnName="FK_Номер_Сотрудника" />
+          <ScalarProperty Name="Жалобы" ColumnName="Жалобы" />
+          <ScalarProperty Name="Назначенное_Лечение" ColumnName="Назначенное_Лечение" />
+          <ScalarProperty Name="Диагноз" ColumnName="Диагноз" />
+          <ScalarProperty Name="Документ_справка" ColumnName="Документ справка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Классный_руководитель">
+      <EntityTypeMapping TypeName="db_MediChartModel.Классный_руководитель">
+        <MappingFragment StoreEntitySet="Классный руководитель">
+          <ScalarProperty Name="Номер_классного_руководителя" ColumnName="Номер классного руководителя" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Электронная_почта" ColumnName="Электронная почта" />
+          <ScalarProperty Name="Номер_Телефона" ColumnName="Номер Телефона" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="Дата_Рождения" ColumnName="Дата Рождения" />
+          <ScalarProperty Name="Адрес_Проживания" ColumnName="Адрес Проживания" />
+          <ScalarProperty Name="Закрепленный_класс" ColumnName="Закрепленный класс" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Лекарства">
+      <EntityTypeMapping TypeName="db_MediChartModel.Лекарства">
+        <MappingFragment StoreEntitySet="Лекарства">
+          <ScalarProperty Name="Номер_Лекарства" ColumnName="Номер_Лекарства" />
+          <ScalarProperty Name="Серийный_Номер" ColumnName="Серийный_Номер" />
+          <ScalarProperty Name="Полное_Название" ColumnName="Полное_Название" />
+          <ScalarProperty Name="Количество" ColumnName="Количество" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сотрудники">
+      <EntityTypeMapping TypeName="db_MediChartModel.Сотрудники">
+        <MappingFragment StoreEntitySet="Сотрудники">
+          <ScalarProperty Name="Номер_Сотрудника" ColumnName="Номер Сотрудника" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="Электронная_почта" ColumnName="Электронная почта" />
+          <ScalarProperty Name="Номер_Телефона" ColumnName="Номер Телефона" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="Дата_Рождения" ColumnName="Дата Рождения" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Образование" ColumnName="Образование" />
+          <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+          <ScalarProperty Name="Фотография" ColumnName="Фотография" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Список_Диагнозов">
+      <EntityTypeMapping TypeName="db_MediChartModel.Список_Диагнозов">
+        <MappingFragment StoreEntitySet="Список Диагнозов">
+          <ScalarProperty Name="Номер_Диагноза" ColumnName="Номер Диагноза" />
+          <ScalarProperty Name="Полное_Название_Диагноза" ColumnName="Полное Название Диагноза" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Список_Классов">
+      <EntityTypeMapping TypeName="db_MediChartModel.Список_Классов">
+        <MappingFragment StoreEntitySet="Список Классов">
+          <ScalarProperty Name="Номер_класса" ColumnName="Номер класса" />
+          <ScalarProperty Name="Название_класса" ColumnName="Название класса" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Учащийся">
+      <EntityTypeMapping TypeName="db_MediChartModel.Учащийся">
+        <MappingFragment StoreEntitySet="Учащийся">
+          <ScalarProperty Name="Номер_Учащегося" ColumnName="Номер Учащегося" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="Электронная_почта" ColumnName="Электронная почта" />
+          <ScalarProperty Name="Номер_Телефона" ColumnName="Номер Телефона" />
+          <ScalarProperty Name="Номер_телефона_родителя" ColumnName="Номер телефона родителя" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="Дата_Рождения" ColumnName="Дата Рождения" />
+          <ScalarProperty Name="Адрес_Проживания" ColumnName="Адрес Проживания" />
+          <ScalarProperty Name="FK_Номер_Класса" ColumnName="FK Номер Класса" />
+          <ScalarProperty Name="Фотография" ColumnName="Фотография" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
