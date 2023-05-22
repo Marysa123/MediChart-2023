@@ -45,5 +45,10 @@ namespace MediChart.WindowUserControl
             };
             dataGrid.ItemsSource = result;
         }
+
+        private void icon_Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

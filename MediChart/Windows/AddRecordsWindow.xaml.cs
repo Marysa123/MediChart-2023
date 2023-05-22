@@ -97,18 +97,26 @@ namespace MediChart.Windows
             else
             {
                 AddDocument();
+                Connection.Close();
                 Connection.Open();
-                var data = File.ReadAllBytes(FileName);
+                if (FileName ==  "")
+                {
 
-                SqlCommand.CommandText = $"insert into [Журнал Посещений] (Дата,[ФИО Пациента],[ФИО Сотрудника],Жалобы,Назначенное_Лечение,Диагноз,[Документ справка]) values ('{textbox_Data.Text}','{combobox_FioPacients.Text}','{textbox_FioPersonal.Text}','{textbox_Jalobi.Text}','{textbox_Lechenie.Text}','{combobox_Diagnoz.Text}',@doc)"; // Создание запроса
-                SqlCommand.Connection = Connection; // Инифиализация подключения
+                }
+                else
+                {
+                    var data = File.ReadAllBytes(FileName);
 
-                SqlCommand.Parameters.Add(new SqlParameter("@doc", data));
+                    SqlCommand.CommandText = $"insert into [Журнал Посещений] (Дата,[ФИО Пациента],[ФИО Сотрудника],Жалобы,Назначенное_Лечение,Диагноз,[Документ справка]) values ('{textbox_Data.Text}','{combobox_FioPacients.Text}','{textbox_FioPersonal.Text}','{textbox_Jalobi.Text}','{textbox_Lechenie.Text}','{combobox_Diagnoz.Text}',@doc)"; // Создание запроса
+                    SqlCommand.Connection = Connection; // Инифиализация подключения
 
-                SqlCommand.ExecuteNonQuery(); // Выполнение запроса
-                Connection.Close(); // Закрытие подключения
-                MessageBox.Show("Успешное создание записи", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
-                Close();
+                    SqlCommand.Parameters.Add(new SqlParameter("@doc", data));
+
+                    SqlCommand.ExecuteNonQuery(); // Выполнение запроса
+                    Connection.Close(); // Закрытие подключения
+                    MessageBox.Show("Успешное создание записи", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Close();
+                }
             }
         }
         string FileName;

@@ -17,11 +17,9 @@
         </Grid.RowDefinitions>
         <Label Content="Форма медработника | Информация о программе" FontSize="20" Margin="20 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
         <TextBlock Text="Здравствуйте! Данная программа предназначена для автоматизации работы медпункта. Она находится на стадии тестирования, поэтому не которые функции могут работать неправильно." TextAlignment="Justify" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Margin="30 65 0 0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+        <Image Name="icon_Exit" Cursor="Hand" Grid.ColumnSpan="2" Source="/Resources/Images/icon_Exit.png" MouseDown="icon_Exit_MouseDown" HorizontalAlignment="Right" Margin="0 25 25 0" Width="24" VerticalAlignment="Top"/>
 
         <Label Content="График работы медицинского кабинета" FontSize="20" Margin="0 20 0 0" FontWeight="Regular" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
         <DataGrid Grid.Column="0" Grid.Row="1" Margin="20 60 20 20" Name="dataGrid" AutoGenerateColumns="True" CanUserAddRows="False" HeadersVisibility="All" IsReadOnly="True"/>
-
-        <Label Content="Функции программы" FontSize="20" Margin="0 50 0 0" FontWeight="Regular" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
-
     </Grid>
 </UserControl>

@@ -39,7 +39,7 @@
                 </Style>
                 </DataGrid.ItemContainerStyle>
             </DataGrid>
-        <Border Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400" CornerRadius="10" Margin="0 110 0 0" Background="WhiteSmoke" Height="240"/>
+        <Border Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400" CornerRadius="10" Margin="0 110 0 0" Background="WhiteSmoke" Height="300"/>
         <StackPanel Margin="0 0 0 0" DataContext="{Binding ElementName=Grid,Path=SelectedValue}" Grid.Column="1">
                 <Image Name="icon_Exit" Cursor="Hand" Grid.ColumnSpan="2" Source="/Resources/Images/icon_Exit.png" MouseDown="icon_Exit_MouseDown" HorizontalAlignment="Right" Margin="0 25 25 0" Width="24" VerticalAlignment="Top"/>
 
@@ -48,12 +48,14 @@
                 <TextBox  Name="textbox_SeriasNomer" Text="{Binding Серийный номер}" Width="350" Margin="10 20 10 0" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Серийный номер:" Height="60" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" BorderBrush="#FF285602" PreviewTextInput="textbox_Kolvo_PreviewTextInput"/>
                 <TextBox  Name="textbox_FullName" Text="{Binding Полное название}" Width="350" Margin="10 10 10 0" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Полное название:" Height="60" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" BorderBrush="#FF285602"/>
                 <TextBox  Name="textbox_Kolvo" Text="{Binding Количество}" Margin="10 10 10 0" Width="350" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Количество:" Height="60" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" PreviewTextInput="textbox_Kolvo_PreviewTextInput" BorderBrush="#FF285602"/>
-                <TextBox
+                <TextBox  Name="textbox_EdIzm" Text="{Binding Единица измерения}" Margin="10 10 10 0" Width="350" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Единица измерения:" Height="60" materialDesign:TextFieldAssist.UnderlineBrush="#FF51F308" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" BorderBrush="#FF285602"/>
+
+            <TextBox
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         Name="textbox_InfoMedicines"
                         VerticalAlignment="Top"
                         Height="290"
-                        Margin="10 60 10 0"
+                        Margin="10 30 10 0"
                         FontSize="20"
                         Text="{Binding Описание лекарства}"
                         AcceptsReturn="True"

@@ -51,14 +51,14 @@ namespace MediChart.WindowUserControl
 
         private void button_AddMedicines_Click(object sender, RoutedEventArgs e)
         {
-            if (textbox_FullName.Text == "" || textbox_InfoMedicines.Text == "" || textbox_Kolvo.Text == "" || textbox_SeriasNomer.Text == "")
+            if (textbox_FullName.Text == "" || textbox_InfoMedicines.Text == "" || textbox_Kolvo.Text == "" || textbox_SeriasNomer.Text == "" || textbox_EdIzm.Text == "")
             {
                 MessageBox.Show("Пустые поля", "Диалоговое окно");
             }
             else
             {
                 Connection.Open();
-                SqlCommand.CommandText = $"Insert into Лекарства (Серийный_Номер,Полное_Название,Количество,[Описание лекарства]) values('{textbox_SeriasNomer.Text}','{textbox_FullName.Text}',{textbox_Kolvo.Text},'{textbox_InfoMedicines.Text}')";
+                SqlCommand.CommandText = $"Insert into Лекарства (Серийный_Номер,Полное_Название,Количество,[Описание лекарства],[Единица Измерения]) values('{textbox_SeriasNomer.Text}','{textbox_FullName.Text}',{textbox_Kolvo.Text},'{textbox_InfoMedicines.Text}','{textbox_EdIzm.Text}')";
                 SqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Данные успешно добавлены.", "Диалоговое окно");
                 GetInfo();
@@ -70,7 +70,7 @@ namespace MediChart.WindowUserControl
             try
             {
                 Connection.Open();
-                SqlCommand.CommandText = $"update Лекарства set Серийный_Номер = '{textbox_SeriasNomer.Text}',Полное_Название = '{textbox_FullName.Text}',Количество = {textbox_Kolvo.Text},[Описание лекарства] = '{textbox_InfoMedicines.Text}' where Номер_Лекарства = '{label_Номер.Content}'";
+                SqlCommand.CommandText = $"update Лекарства set Серийный_Номер = '{textbox_SeriasNomer.Text}',Полное_Название = '{textbox_FullName.Text}',Количество = {textbox_Kolvo.Text},[Описание лекарства] = '{textbox_InfoMedicines.Text}',[Единица Измерения] = '{textbox_EdIzm.Text}' where Номер_Лекарства = '{label_Номер.Content}'";
                 SqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
                 GetInfo();
@@ -110,7 +110,7 @@ namespace MediChart.WindowUserControl
         }
         private void GetInfo()
         {
-            SqlCommand.CommandText = "SELECT Номер_Лекарства as 'Номер лекарства',Серийный_Номер as 'Серийный номер', Полное_Название as 'Полное название',Количество,[Описание лекарства] as 'Описание лекарства' from Лекарства";
+            SqlCommand.CommandText = "SELECT Номер_Лекарства as 'Номер лекарства',Серийный_Номер as 'Серийный номер', Полное_Название as 'Полное название',Количество,[Описание лекарства] as 'Описание лекарства',[Единица Измерения] as 'Единица измерения' from Лекарства";
             DataTable dataTable = new DataTable("Номер_Лекарства");
             SqlDataAdapter npgsqlDataAdapter = new SqlDataAdapter(SqlCommand);
             npgsqlDataAdapter.Fill(dataTable);

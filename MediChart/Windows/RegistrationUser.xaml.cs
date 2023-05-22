@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -27,6 +29,10 @@ namespace MediChart.Windows
         private SqlCommand SqlCommand;
 
         List<string> MassivNameClass;
+        byte[] data;
+
+
+        public string SourceIm { get; private set; }
 
         public RegistrationUser()
         {
@@ -91,31 +97,43 @@ namespace MediChart.Windows
                         ValidateInfoStudentPhone(textbox_Phone.Text, result: out bool ResultPhone);
                         if (ResultPhone == true)
                         {
-                            ConfirmationEmail confirmationEmail = new ConfirmationEmail();
-                            confirmationEmail.ConfirmationEmailMessage(textbox_EMail.Text,out bool Result);
-                            if (Result == true)
+                            try
                             {
-                                confirmationEmail.ShowDialog();
+                                ConfirmationEmail confirmationEmail = new ConfirmationEmail();
+                                confirmationEmail.ConfirmationEmailMessage(textbox_EMail.Text, out bool Result);
+                                if (Result == true)
+                                {
+                                    confirmationEmail.ShowDialog();
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                                if (confirmationEmail.ResultConfirmation == false)
+                                {
+                                    MessageBox.Show("Неверный код!", "Диалоговое окно", MessageBoxButton.OK);
+                                }
+                                else
+                                {
+                                    SourceIm = "./icon_Images.png";
+                                    data = File.ReadAllBytes(SourceIm);
+
+                                    Connection.Open();
+                                    SqlCommand.CommandText = $"Insert into Учащийся (Имя,Фамилия, Отчество, Логин, Пароль,[Электронная почта],[Номер Телефона],[Номер телефона родителя],Пол,[Дата Рождения],[Адрес Проживания],[FK Номер Класса],[Фотография]) values('{textbox_Ima.Text}','{textbox_Fam.Text}','{textbox_Otc.Text}','{textbox_Login.Text}','{textbox_VerifityPassword.Password}','{textbox_EMail.Text}','{textbox_Phone.Text}','{textbox_PhoneRod.Text}','{combobox_pol.Text}','{datapicker_data.Text}','{textbox_Adress.Text}','{combobox_Class.Text}',@photo)";
+                                    SqlCommand.Parameters.Add(new SqlParameter("@photo", data));
+                                    SqlCommand.ExecuteNonQuery();
+                                    Connection.Close();
+                                    MessageBox.Show("Успешная регистрация", "Диалоговое окно");
+                                    SignInAndUp signInAndUp = new SignInAndUp();
+                                    signInAndUp.Show();
+                                    Close();
+                                }
                             }
-                            else
+                            catch (Exception)
                             {
-                                return;
+                                MessageBox.Show("Неизвестная ошибка!","Диалоговое окно",MessageBoxButton.OK,MessageBoxImage.Error);
                             }
-                            if (confirmationEmail.ResultConfirmation == false)
-                            {
-                                MessageBox.Show("Неверный код!", "Диалоговое окно", MessageBoxButton.OK);
-                            }
-                            else
-                            {
-                                Connection.Open();
-                                SqlCommand.CommandText = $"Insert into Учащийся (Имя,Фамилия, Отчество, Логин, Пароль,[Электронная почта],[Номер Телефона],[Номер телефона родителя],Пол,[Дата Рождения],[Адрес Проживания],[FK Номер Класса]) values('{textbox_Ima.Text}','{textbox_Fam.Text}','{textbox_Otc.Text}','{textbox_Login.Text}','{textbox_VerifityPassword.Password}','{textbox_EMail.Text}','{textbox_Phone.Text}','{textbox_PhoneRod.Text}','{combobox_pol.Text}','{datapicker_data.Text}','{textbox_Adress.Text}','{combobox_Class.Text}')";
-                                SqlCommand.ExecuteNonQuery();
-                                Connection.Close();
-                                MessageBox.Show("Успешная регистрация", "Диалоговое окно");
-                                SignInAndUp signInAndUp = new SignInAndUp();
-                                signInAndUp.Show();
-                                Close();
-                            }     
+                           
                         }
                         else
                         {

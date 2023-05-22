@@ -121,6 +121,7 @@ namespace MediChart.WindowUserControl
                 };
 
                 SqlCommand.CommandText = $"select [Фотография] from [Учащийся] where [Номер Учащегося] = {MassivNomerPersonal[i]}";
+                
                 Image = (byte[])SqlCommand.ExecuteScalar();
 
                 System.IO.MemoryStream ms = new System.IO.MemoryStream(Image);
